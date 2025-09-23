@@ -5,6 +5,43 @@
     <title>Ecotrail Aventuras</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<script>
+// Função que roda quando clica em "Reservar"
+function fazerReserva(botao) {
+    // Pegar o pacote clicado
+    const pacote = botao.parentElement;
+    const nome = pacote.querySelector('h3').textContent;
+    const preco = pacote.querySelector('.preco').textContent;
+    
+    // Pedir informações básicas
+    const nomeCliente = prompt("Qual seu nome completo?");
+    if (!nomeCliente) return;
+    
+    const telefone = prompt("Qual seu telefone?");
+    if (!telefone) return;
+    
+    const email = prompt("Qual seu e-mail?");
+    if (!email) return;
+    
+    // Confirmar reserva
+    const confirmacao = confirm(`Confirmar reserva?\n\nPacote: ${nome}\nPreço: ${preco}\nCliente: ${nomeCliente}\nTelefone: ${telefone}\nE-mail: ${email}`);
+    
+    if (confirmacao) {
+        alert("✅ Reserva confirmada! Entraremos em contato em breve.");
+        console.log("Reserva feita:", { nome, preco, nomeCliente, telefone, email });
+    }
+}
+
+// Adicionar evento nos botões
+document.addEventListener('DOMContentLoaded', function() {
+    const botoes = document.querySelectorAll('.botao-pacote');
+    botoes.forEach(botao => {
+        botao.addEventListener('click', function() {
+            fazerReserva(this);
+        });
+    });
+});
+</script>
 <body>
     <!-- Fundo fixo -->
     <div class="background"></div>
