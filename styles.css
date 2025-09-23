@@ -24,7 +24,6 @@ body {
     background-image: url(img/picodabandeira.jpg);
     background-size: cover;
     background-position: center;
-    z-index: -1;
 }
 
 /* Logo */
@@ -50,7 +49,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px 40px;
-    z-index: 1000;
 }
 
 
