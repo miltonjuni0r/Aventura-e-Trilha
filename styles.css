@@ -47,21 +47,20 @@ body {
     background: rgba(20, 83, 45, 0.95);
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 40px;
     z-index: 1000;
 }
 
-.cabeçalho h1 {
-    font-size: 28px;
-    letter-spacing: 1px;
-}
+
 
 .navegacao {
     margin-left: 20px;
     color: #fefefe;
     font-weight: bold;
+    justify-content: center;
+    align-items: center;
 }
 
 .navegacao:hover {
