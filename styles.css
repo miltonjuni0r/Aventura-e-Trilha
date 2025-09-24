@@ -24,6 +24,7 @@ body {
     background-image: url(img/picodabandeira.jpg);
     background-size: cover;
     background-position: center;
+    z-index: -1;
 }
 
 /* Logo */
@@ -60,7 +61,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/*Efeito ao passar o cursor*/
 .navegacao:hover {
     color: #facc15;
     text-decoration: none;
@@ -68,14 +69,14 @@ body {
 
 /* Anúncio */
 .anuncio {
-    margin-top: 100px;
+    margin-top: 100px; /*Espaço acima do anuncio*/
     padding: 15px;
     font-size: 22px;
     font-weight: bold;
     color: #f59e0b;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 8px;
-    display: inline-block;
+    display: inline-block; /* Comportamento híbrido de formato linha e div*/
 }
 
 /* Seção Sobre */
@@ -149,12 +150,12 @@ body {
     margin-bottom: 25px;
 }
 
-.pacotes-container {
+.pacotes-divisoes {
     display: flex;
     gap: 25px;
     justify-content: center;
 }
-
+/* Cartão de cada pacote */
 .pacote {
     background: #ffffff;
     border-radius: 12px;
@@ -163,7 +164,7 @@ body {
     max-width: 300px;
     text-align: center;
 }
-
+/* Imagem dentro do pacote */
 .pacote img {
     width: 100%;
     border-radius: 10px;
@@ -189,7 +190,7 @@ body {
     display: block;
     margin-bottom: 12px;
 }
-
+/* Botão de reserva */
 .botao-pacote {
     background: #16a34a;
     color: #fff;

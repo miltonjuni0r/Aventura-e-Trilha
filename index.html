@@ -9,35 +9,35 @@
 // Função que roda quando clica em "Reservar"
 function fazerReserva(botao) {
     // Pegar o pacote clicado
-    const pacote = botao.parentElement;
-    const nome = pacote.querySelector('h3').textContent;
-    const preco = pacote.querySelector('.preco').textContent;
+    const pacote = botao.parentElement; // Div do pacote
+    const nome = pacote.querySelector('h3').textContent; // Nome do pacote
+    const preco = pacote.querySelector('.preco').textContent; // Preço
     
     // Pedir informações básicas
-    const nomeCliente = prompt("Qual seu nome completo?");
+    const nomeCliente = prompt("Qual seu nome completo?"); // O prompt abre a caixa de diálogo
     if (!nomeCliente) return;
     
-    const telefone = prompt("Qual seu telefone?");
+    const telefone = prompt("Qual seu telefone?"); 
     if (!telefone) return;
     
     const email = prompt("Qual seu e-mail?");
     if (!email) return;
     
     // Confirmar reserva
-    const confirmacao = confirm(`Confirmar reserva?\n\nPacote: ${nome}\nPreço: ${preco}\nCliente: ${nomeCliente}\nTelefone: ${telefone}\nE-mail: ${email}`);
+    const confirmacao = confirm(`Confirmar reserva?\n\nPacote: ${nome}\nPreço: ${preco}\nCliente: ${nomeCliente}\nTelefone: ${telefone}\nE-mail: ${email}`); // A aspa permite o caractere especial "$" e a \n serve pra quebrar linha e organizar
     
     if (confirmacao) {
-        alert("✅ Reserva confirmada! Entraremos em contato em breve.");
-        console.log("Reserva feita:", { nome, preco, nomeCliente, telefone, email });
+        alert("✅ Reserva confirmada! Entraremos em contato em breve."); 
+        console.log("Reserva feita:", { nome, preco, nomeCliente, telefone, email }); 
     }
 }
 
 // Adicionar evento nos botões
 document.addEventListener('DOMContentLoaded', function() {
-    const botoes = document.querySelectorAll('.botao-pacote');
-    botoes.forEach(botao => {
-        botao.addEventListener('click', function() {
-            fazerReserva(this);
+    const botoes = document.querySelectorAll('.botao-pacote'); // Seleciona todos os botões reservar
+    botoes.forEach(function(botao) {  
+        botao.addEventListener('click', function() { // Quando clicar
+            fazerReserva(this); 
         });
     });
 });
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Pacotes -->
     <section id="pacotes">
         <h2 class="pacotes-titulo">🌟 Pacotes e Promoções</h2>
-        <div class="pacotes-container">
+        <div class="pacotes-divisoes">
             <!-- Carro-chefe -->
             <div class="pacote destaque">
                 <img src="img/picodabandeira.jpg" alt="Trilha Pico da Bandeira">
