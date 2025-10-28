@@ -5,43 +5,7 @@
     <title>Ecotrail Aventuras</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<script>
-// Função que roda quando clica em "Reservar"
-function fazerReserva(botao) {
-    // Pegar o pacote clicado
-    const pacote = botao.parentElement; // Div do pacote
-    const nome = pacote.querySelector('h3').textContent; // Nome do pacote
-    const preco = pacote.querySelector('.preco').textContent; // Preço
-    
-    // Pedir informações básicas
-    const nomeCliente = prompt("Qual seu nome completo?"); // O prompt abre a caixa de diálogo
-    if (!nomeCliente) return;
-    
-    const telefone = prompt("Qual seu telefone?"); 
-    if (!telefone) return;
-    
-    const email = prompt("Qual seu e-mail?");
-    if (!email) return;
-    
-    // Confirmar reserva
-    const confirmacao = confirm(`Confirmar reserva?\n\nPacote: ${nome}\nPreço: ${preco}\nCliente: ${nomeCliente}\nTelefone: ${telefone}\nE-mail: ${email}`); // A aspa permite o caractere especial "$" e a \n serve pra quebrar linha e organizar
-    
-    if (confirmacao) {
-        alert("✅ Reserva confirmada! Entraremos em contato em breve."); 
-        console.log("Reserva feita:", { nome, preco, nomeCliente, telefone, email }); 
-    }
-}
-
-// Adicionar evento nos botões
-document.addEventListener('DOMContentLoaded', function() {
-    const botoes = document.querySelectorAll('.botao-pacote'); // Seleciona todos os botões reservar
-    botoes.forEach(function(botao) {  
-        botao.addEventListener('click', function() { // Quando clicar
-            fazerReserva(this); 
-        });
-    });
-});
-</script>
+<script src="script.js"></script>
 <body>
     <!-- Fundo fixo -->
     <div class="background"></div>
@@ -126,10 +90,29 @@ document.addEventListener('DOMContentLoaded', function() {
         <h1 id="copy">&copy; Ecotrail</h1>
         <h1 id="Redes">Redes e contato</h1>
         <ul class="Lista-Contato">
-            <li><a href="#instagram">Instagram</a></li>
-            <li><a href="#twitter">Twitter</a></li>
-            <li><a href="#whatsapp">Whatsapp</a></li>
+            <li><a href="https://www.instagram.com/aventurasetrilhas_ecoturismo?igsh=NndlM3Z5b2xvM3Js" target="_blank">Instagram</a></li>
+            <li><a href="https://x.com/EcotrailMG" target="_blank">Twitter</a></li>
+            <li><a href="https://www.whatsapp.com/?lang=pt" target="_blank">Whatsapp</a></li>
         </ul>
     </footer>
+
+    <!-- Painel de Reserva -->
+    <div id="painelReserva" class="painel">
+        <div class="painel-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Complete suas informações</h2>
+            <p id="nomePacote"></p>
+            <p id="precoPacote"></p>
+            <input type="text" id="nomeCliente" placeholder="Nome completo">
+            <input type="tel" id="telefone" placeholder="Telefone">
+            <input type="email" id="email" placeholder="E-mail">
+            
+            <p>Método de pagamento:</p>
+            <label><input type="radio" name="pagamento" value="boleto" checked> Boleto</label>
+            <label><input type="radio" name="pagamento" value="pix"> Pix</label>
+
+            <button id="confirmarReserva">Confirmar</button>
+        </div>
+    </div>
 </body>
 </html>

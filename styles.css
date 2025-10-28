@@ -40,6 +40,7 @@ body {
 
 /* Cabeçalho fixo */
 #cabeçalho {
+    z-index: 5;
     position: fixed;
     top: 0;
     left: 0;
@@ -88,6 +89,11 @@ body {
     background: #fdf6e3;
     box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     text-align: justify;
+    transition: 0.4s;
+}
+#sobre:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0,0,0,3);
 }
 
 .sobre {
@@ -111,9 +117,7 @@ body {
     margin: 30px auto;
     display: block;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
-
 /* Seção de serviços */
 #serviços {
     max-width: 800px;
@@ -122,6 +126,7 @@ body {
     border-radius: 12px;
     background-color: #fffbea;
     box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    transition: 0.3s;
 }
 
 .serviços {
@@ -129,7 +134,10 @@ body {
     color: #22543d;
     margin-bottom: 15px;
 }
-
+#serviços:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0,0,0,3);
+}
 .lista-destaques {
     list-style: none;
     font-size: 20px;
@@ -143,7 +151,6 @@ body {
     margin: 60px auto;
     padding: 30px;
 }
-
 .pacotes-titulo {
     font-size: 32px;
     color: #166534;
@@ -163,6 +170,12 @@ body {
     padding: 20px;
     max-width: 300px;
     text-align: center;
+    transition: transform 0.8s ease, box-shadow 0.8s ease, max-width 0.8s ease;
+}
+.pacote:hover{
+    max-width: 10000px;
+    transform: scale(1.2);
+    box-shadow: 0px 10px 20px rgba(0,0,0,3);
 }
 /* Imagem dentro do pacote */
 .pacote img {
@@ -200,7 +213,6 @@ body {
     cursor: pointer;
     font-weight: bold;
 }
-
 .botao-pacote:hover {
     background: #15803d;
 }
@@ -253,3 +265,71 @@ footer {
     color: #facc15;
 }
 
+.painel {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.painel-conteudo {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.painel-conteudo input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.painel-conteudo button {
+  padding: 10px 20px;
+  border: none;
+  background: #28a745;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.fechar {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* Espaçamento entre as opções de pagamento e o botão */
+.painel-conteudo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+#confirmarReserva {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: #1a7730;
+  color: white;
+  cursor: pointer;
+}
+
+#confirmarReserva:hover {
+  background-color: #145a25;
+}
