@@ -33,6 +33,9 @@
         <p class="corpo-texto">
             A <strong>Ecotrail Aventuras</strong> nasceu com a missão de proporcionar experiências únicas em contato com a natureza. Nosso objetivo é unir lazer, diversão e respeito ao meio ambiente em cada roteiro que oferecemos. Com uma equipe apaixonada por trilhas e atividades ao ar livre, buscamos promover não só a aventura, mas também a conscientização ambiental, incentivando práticas sustentáveis em todas as nossas viagens. Oferecemos passeios para todos os públicos: desde quem busca tranquilidade e contemplação até aqueles que desejam desafios radicais. Acampamentos, caiaque, caminhadas e paisagens de tirar o fôlego fazem parte da nossa essência. Junte-se a nós e viva momentos inesquecíveis explorando o que a natureza tem de melhor!
         </p>
+        <p class="corpo-texto">
+            De início, contamos com três rotas: o Pico da Bandeira, o Saco do Mamanguá e a Serra do Cipó — mas nossa visão é expandir para muitos outros pontos incríveis pelo Brasil.
+        </p>
     </section>
 
     <!-- Imagem destaque -->
@@ -54,28 +57,24 @@
     <section id="pacotes">
         <h2 class="pacotes-titulo">🌟 Pacotes e Promoções</h2>
         <div class="pacotes-divisoes">
-            <!-- Carro-chefe -->
             <div class="pacote destaque">
                 <img src="img/picodabandeira.jpg" alt="Trilha Pico da Bandeira">
-                <h3>Pico da Bandeira - Carro-chefe</h3>
-                <p>Uma das trilhas mais deslumbrantes do Brasil, com paisagens únicas e o nascer do sol mais bonito das montanhas capixabas e mineiras.</p>
+                <h3>Pico da Bandeira - ES</h3>
+                <p>O carro-chefe da agência e uma das trilhas mais deslumbrantes do Brasil, com paisagens únicas e o nascer do sol mais bonito das montanhas capixabas e mineiras.</p>
                 <p class="preco">R$ 799,00</p>
                 <button class="botao-pacote">Reservar</button>
             </div>
-            
-            <!-- Outros pacotes -->
             <div class="pacote">
                 <img src="img/caiaque.jpg" alt="Passeio de Caiaque">
-                <h3>Aventura de Caiaque</h3>
-                <p>Explore rios e lagoas em passeios de caiaque guiados, com segurança e diversão garantida.</p>
+                <h3>Saco do Mamanguá - RJ</h3>
+                <p>Conhecido como o único fiorde tropical das Américas, o Saco do Mamanguá, em Paraty (RJ), é um paraíso para quem ama passeios de caiaque!</p>
                 <p class="preco">R$ 299,00</p>
                 <button class="botao-pacote">Reservar</button>
             </div>
-            
             <div class="pacote">
                 <img src="img/acampamento.jpg" alt="Acampamento na natureza">
-                <h3>Acampamento Selvagem</h3>
-                <p>Durma sob as estrelas e viva a experiência de estar em harmonia com a natureza em locais paradisíacos.</p>
+                <h3>Serra do Cipó - MG</h3>
+                <p>Com suas inúmeras cachoeiras, trilhas e flora exuberante, é um lugar que convida à paz e ao descanso.</p>
                 <p class="preco">R$ 399,00</p>
                 <button class="botao-pacote">Reservar</button>
             </div>
@@ -83,7 +82,7 @@
     </section>
 
     <!-- Contato -->
-    <p id="contato">Está esperando o quê? <a id="servicos">Venha conhecer nosso itinerário com as melhores ofertas!</a></p>
+    <p id="contato">Está esperando o quê? <a id="servicos">Venha conhecer mais em nossas redes sociais!</a></p>
 
     <!-- Rodapé -->
     <footer>
@@ -103,12 +102,14 @@
             <h2>Complete suas informações</h2>
             <p id="nomePacote"></p>
             <p id="precoPacote"></p>
-            <input type="text" id="nomeCliente" placeholder="Nome completo">
-            <input type="tel" id="telefone" placeholder="Telefone">
-            <input type="email" id="email" placeholder="E-mail">
+            <input type="text" id="nomeCliente" placeholder="Nome completo" required>
+            <input type="tel" id="telefone" placeholder="Telefone" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="text" id="cpf" placeholder="CPF" required>
+
             
             <p>Método de pagamento:</p>
-            <label><input type="radio" name="pagamento" value="boleto" checked> Boleto</label>
+            <label><input type="radio" name="pagamento" value="boleto"> Boleto</label>
             <label><input type="radio" name="pagamento" value="pix"> Pix</label>
 
             <button id="confirmarReserva">Confirmar</button>
