@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const precoPacote = document.getElementById("precoPacote");
   const confirmar = document.getElementById("confirmarReserva");
 
-  // Abrir o painel de reserva ao clicar no botão
+  // Abrir o painel
   botoesReserva.forEach(botao => {
     botao.addEventListener("click", () => {
       const pacote = botao.parentElement;
@@ -28,57 +28,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Fechar painel
-  fechar.addEventListener("click", () => {
-    painel.style.display = "none";
-  });
+  fechar.addEventListener("click", () => painel.style.display = "none");
 
-  // Função para validar email básico
+  // Funções de validação
   function validarEmail(email) {
-    return /\S+@\S+\.\S+/.test(email); // verifica se tem @ e .
+    return /\S+@\S+\.\S+/.test(email);
   }
-
-  // Função para validar CPF
   function validarCPF(cpf) {
-    return /^\d{11}$/.test(cpf); // verifica se tem exatamente 11 dígitos
+    return /^\d{11}$/.test(cpf);
   }
 
-  // Confirmar reserva
   confirmar.addEventListener("click", () => {
     const nome = document.getElementById("nomeCliente").value.trim();
     const tel = document.getElementById("telefone").value.trim();
     const email = document.getElementById("email").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
 
-
-    // Checa se todos os campos estão preenchidos
-    if (!nome || !tel || !email || !cpf ) {
-      alert("Por favor, preencha todos os campos antes de confirmar.");
-      return;
-    }
-
-    // Valida email
-    if (!validarEmail(email)) {
-      alert("E-mail inválido! Certifique-se de incluir o '@' e domínio.");
-      return;
-    }
-
-    // Valida CPF
-    if (!validarCPF(cpf)) {
-      alert("CPF inválido! O CPF deve ter exatamente 11 dígitos numéricos.");
-      return;
-    }
-
-    // Exibe mensagem de sucesso
     let mensagem = document.getElementById("mensagemConfirmacao");
     if (!mensagem) {
       mensagem = document.createElement("p");
       mensagem.id = "mensagemConfirmacao";
-      mensagem.style.color = "green";
-      mensagem.style.fontWeight = "bold";
       painel.querySelector(".painel-conteudo").appendChild(mensagem);
     }
 
-    mensagem.innerText = `✅ Pedido confirmado! Enviaremos mais informações no seu contato. Obrigado por reservar conosco, ${nome}!`;
+    // 🔹 Reset visual antes de qualquer verificação
+    mensagem.style.color = "";
+    mensagem.style.fontWeight = "";
+    mensagem.innerText = "";
+
+    // 🔹 Validações
+    if (!nome || !tel || !email || !cpf) {
+      mensagem.textContent = "⚠️ Preencha todos os campos!";
+      mensagem.style.color = "red";
+      mensagem.style.fontWeight = "bold";
+      return;
+    }
+
+    if (!validarEmail(email)) {
+      mensagem.textContent = "⚠️ E-mail inválido! Certifique-se de incluir '@' e domínio.";
+      mensagem.style.color = "red";
+      mensagem.style.fontWeight = "bold";
+      return;
+    }
+
+    if (!validarCPF(cpf)) {
+      mensagem.textContent = "⚠️ CPF inválido! O CPF deve ter exatamente 11 dígitos numéricos.";
+      mensagem.style.color = "red";
+      mensagem.style.fontWeight = "bold";
+      return;
+    }
+
+    // 🔹 Sucesso
+    mensagem.textContent = `✅ Pedido confirmado! Enviaremos mais informações no seu contato, ${nome}.`;
+    mensagem.style.color = "green";
+    mensagem.style.fontWeight = "bold";
   });
 });
