@@ -331,6 +331,8 @@ function precoParaInput($preco): string
             <h1>Gerenciar pacotes</h1>
             <div class="acoes">
                 <a class="btn btn-voltar" href="../admin.php">Voltar</a>
+                <a class="btn btn-voltar" href="AdmClientes.php">Ver Clientes</a>
+                <a class="btn btn-voltar" href="Reservados.php">Ver Reservas</a>
                 <a class="btn btn-logout" href="../logout.php">Logout</a>
             </div>
         </div>

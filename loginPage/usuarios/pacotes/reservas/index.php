@@ -61,26 +61,17 @@ function buscarFormasPagamento(PDO $pdo)
         }
     }
 
-    foreach ($tabelasPagamento as $tabelaPagamento) {
-        try {
-            $stmt = $pdo->query('SELECT DISTINCT forma_pagamento AS nome FROM ' . $tabelaPagamento . ' WHERE forma_pagamento IS NOT NULL AND forma_pagamento <> "" ORDER BY forma_pagamento ASC');
-            $linhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $formas = [];
-            foreach ($linhas as $linha) {
-                $valor = trim((string) $linha['nome']);
-                if ($valor !== '') {
-                    $formas[] = ['id' => $valor, 'nome' => $valor];
-                }
-            }
-            if (count($formas) > 0) {
-                return $formas;
-            }
-        } catch (PDOException $e) {
-            continue;
+    return $padrao;
+}
+
+function formaPagamentoPermitida(array $formasPagamento, string $formaSelecionada)
+{
+    foreach ($formasPagamento as $forma) {
+        if ((string) $forma['id'] === $formaSelecionada) {
+            return true;
         }
     }
-
-    return $padrao;
+    return false;
 }
 
 function inserirPagamento(PDO $pdo, int $idReserva, string $formaPagamento)
@@ -147,6 +138,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_reserva']))
         $tipoMensagem = 'erro';
     } elseif ($formaPagamentoSelecionada === '') {
         $mensagem = 'Selecione uma forma de pagamento.';
+        $tipoMensagem = 'erro';
+    } elseif (!formaPagamentoPermitida($formasPagamento, $formaPagamentoSelecionada)) {
+        $mensagem = 'Forma de pagamento invalida.';
         $tipoMensagem = 'erro';
     } else {
         $inseriu = false;
